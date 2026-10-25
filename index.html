@@ -13,7 +13,6 @@
 
 <style>
 :root {
-  /* Paleta: Verde Oliva, Blanco, Marfil y Dorado */
   --olive: #5b6e41;
   --olive-dark: #334222;
   --olive-light: #889c6d;
@@ -33,7 +32,7 @@
 body {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 16px 10px 32px;
+  padding: 16px 10px 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +44,6 @@ body {
   position: relative;
 }
 
-/* --- LIENZO DE PÉTALOS, HOJAS Y DESTELLOS DORADOS --- */
 #particlesCanvas {
   position: fixed;
   top: 0; left: 0;
@@ -56,7 +54,7 @@ body {
 
 button { font: inherit; outline: none; touch-action: manipulation; }
 
-/* --- BOTÓN DE MÚSICA FLOTANTE Y ETIQUETA --- */
+/* --- MÚSICA FLOTANTE --- */
 .music-wrapper {
   position: fixed;
   top: 14px;
@@ -118,7 +116,7 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   margin: auto;
 }
 
-/* --- SOBRE INTERACTIVO (OPTIMIZADO PARA TOQUE EN MÓVIL) --- */
+/* --- SOBRE INTERACTIVO --- */
 .envelope-wrapper {
   min-height: 520px;
   display: flex;
@@ -168,7 +166,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   touch-action: manipulation;
 }
 
-/* Carta interna que se asoma al abrir */
 .envelope-letter {
   position: absolute;
   top: 12px; left: 16px; right: 16px; bottom: 12px;
@@ -199,7 +196,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   margin-top: 4px;
 }
 
-/* Solapa superior */
 .envelope-flap {
   position: absolute;
   inset: 0;
@@ -213,7 +209,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   pointer-events: none;
 }
 
-/* Bolsillo frontal */
 .envelope .front {
   position: absolute;
   inset: 0;
@@ -233,7 +228,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   pointer-events: none;
 }
 
-/* Sello de Cera Realista */
 .seal {
   position: absolute;
   z-index: 6;
@@ -284,7 +278,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   font-weight: 600;
 }
 
-/* Botón/Guía para abrir el sobre (Especial adultos mayores) */
 .envelope-click-helper {
   margin-top: 14px;
   background: var(--white);
@@ -324,7 +317,7 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   50% { transform: scale(1.22); }
 }
 
-/* --- LA CARTA PRINCIPAL --- */
+/* --- CARTA ABIERTA --- */
 .card {
   display: none;
   position: relative;
@@ -342,7 +335,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ramilletes Florales y Ramas de Olivo en las 4 Esquinas */
 .botanical-corner {
   position: absolute;
   width: 155px;
@@ -351,42 +343,19 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   z-index: 3;
   transform-origin: center;
 }
-.corner-tl {
-  top: -4px; left: -4px;
-  animation: swayTL 6s ease-in-out infinite;
-}
-.corner-tr {
-  top: -4px; right: -4px;
-  transform: scaleX(-1);
-  opacity: 0.75;
-  width: 115px; height: 115px;
-}
-.corner-bl {
-  bottom: -4px; left: -4px;
-  transform: scaleY(-1);
-  opacity: 0.75;
-  width: 115px; height: 115px;
-}
-.corner-br {
-  bottom: -4px; right: -4px;
-  transform: rotate(180deg);
-  animation: swayBR 6s ease-in-out infinite;
-}
+.corner-tl { top: -4px; left: -4px; animation: swayTL 6s ease-in-out infinite; }
+.corner-tr { top: -4px; right: -4px; transform: scaleX(-1); opacity: 0.75; width: 115px; height: 115px; }
+.corner-bl { bottom: -4px; left: -4px; transform: scaleY(-1); opacity: 0.75; width: 115px; height: 115px; }
+.corner-br { bottom: -4px; right: -4px; transform: rotate(180deg); animation: swayBR 6s ease-in-out infinite; }
 
-@keyframes swayTL {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(2deg); }
-}
-@keyframes swayBR {
-  0%, 100% { transform: rotate(180deg); }
-  50% { transform: rotate(182deg); }
-}
+@keyframes swayTL { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(2deg); } }
+@keyframes swayBR { 0%, 100% { transform: rotate(180deg); } 50% { transform: rotate(182deg); } }
 
 .frame {
   border: 1.5px solid var(--gold);
   outline: 1px solid var(--gold-light);
   outline-offset: -6px;
-  padding: 28px 20px 24px;
+  padding: 26px 18px 22px;
   min-height: 640px;
   position: relative;
   background: rgba(255, 255, 255, 0.92);
@@ -397,13 +366,12 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   border-radius: 6px;
 }
 
-/* Indicador Superior de Páginas */
 .top-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .page-counter-label {
   font-size: 10px;
@@ -440,7 +408,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
 }
 .page.active { display: block; }
 
-/* Animaciones en Cascada */
 .page.active .stagger-1 { animation: fadeInUp 0.6s ease both 0.05s; }
 .page.active .stagger-2 { animation: fadeInUp 0.6s ease both 0.15s; }
 .page.active .stagger-3 { animation: fadeInUp 0.6s ease both 0.25s; }
@@ -452,7 +419,6 @@ button { font: inherit; outline: none; touch-action: manipulation; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- TIPOGRAFÍA Y ELEMENTOS DE BODA --- */
 .eyebrow {
   color: var(--olive);
   text-transform: uppercase;
@@ -462,75 +428,75 @@ button { font: inherit; outline: none; touch-action: manipulation; }
 }
 
 .names {
-  margin: 10px 0 4px;
+  margin: 8px 0 2px;
   color: var(--olive-dark);
-  font: 64px/1.08 'Great Vibes', cursive;
+  font: 60px/1.08 'Great Vibes', cursive;
   text-shadow: 1px 2px 0px rgba(197, 160, 89, 0.18);
 }
 
 .ampersand {
   color: var(--gold);
-  font-size: 50px;
+  font-size: 46px;
   display: inline-block;
   margin: 0 3px;
 }
 
 .floral-divider {
-  margin: 8px auto 14px;
-  width: 170px;
-  height: 30px;
+  margin: 6px auto 10px;
+  width: 150px;
+  height: 25px;
   display: block;
 }
 
 .rings-icon {
-  margin: 8px auto;
-  width: 86px;
-  height: 52px;
+  margin: 6px auto;
+  width: 75px;
+  height: 45px;
 }
 
 .intro {
-  font: italic 600 23px/1.4 'Cormorant Garamond', serif;
-  margin: 14px 0;
+  font: italic 600 21px/1.35 'Cormorant Garamond', serif;
+  margin: 10px 0;
   color: var(--olive-dark);
 }
 
 .copy {
-  font-size: 14.5px;
-  line-height: 1.75;
+  font-size: 13.5px;
+  line-height: 1.7;
   color: var(--text-muted);
-  padding: 0 6px;
+  padding: 0 4px;
 }
 
 h2.section-title {
-  font: 700 36px/1.15 'Cormorant Garamond', serif;
+  font: 700 32px/1.1 'Cormorant Garamond', serif;
   color: var(--olive-dark);
-  margin: 4px 0 6px;
+  margin: 2px 0 4px;
 }
 
-/* --- PÁGINA 2: VERSÍCULO BÍBLICO --- */
+/* --- VERSÍCULO BÍBLICO --- */
 .verse-card {
   background: linear-gradient(145deg, var(--ivory), var(--olive-soft));
   border: 1.5px solid var(--gold);
-  border-radius: 12px;
-  padding: 20px 16px;
-  margin: 12px 0;
-  box-shadow: 0 10px 25px rgba(51, 66, 34, 0.08);
+  border-radius: 10px;
+  padding: 16px 14px;
+  margin: 10px 0;
+  box-shadow: 0 8px 20px rgba(51, 66, 34, 0.08);
   position: relative;
 }
 .verse-text {
-  font: italic 600 21px/1.48 'Cormorant Garamond', serif;
+  font: italic 600 19px/1.45 'Cormorant Garamond', serif;
   color: var(--olive-dark);
 }
 .verse-ref {
-  margin-top: 10px;
-  font-size: 11.5px;
+  margin-top: 8px;
+  font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--gold-dark);
   font-weight: 600;
 }
 
-/* --- PÁGINA 3: 2 RENGLONES PARA LAS FOTOS DE LA PAREJA --- */
+/* --- FOTOS COMPLETAS (SIN RECORTAR) --- */
 .micro-hint {
   display: inline-flex;
   align-items: center;
@@ -538,40 +504,42 @@ h2.section-title {
   background: var(--olive-soft);
   border: 1px solid var(--gold);
   color: var(--olive-dark);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .gallery-rows {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin: 8px 0;
+  gap: 10px;
+  margin: 6px 0;
 }
 .photo-row {
-  padding: 8px 8px 12px;
+  padding: 6px 6px 10px;
   background: var(--white);
   border: 1.5px solid var(--gold);
   border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(51, 66, 34, 0.12);
+  box-shadow: 0 8px 20px rgba(51, 66, 34, 0.1);
   transition: all 0.35s ease;
   cursor: pointer;
   position: relative;
 }
 .photo-row img {
   width: 100%;
-  height: 175px;
-  object-fit: cover;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
   border-radius: 4px;
-  background: var(--olive-soft);
+  background: #f4f7f1;
 }
 .photo-row figcaption {
-  padding-top: 8px;
-  font: italic 600 20px 'Cormorant Garamond', serif;
+  padding-top: 6px;
+  font: italic 600 18px 'Cormorant Garamond', serif;
   color: var(--olive-dark);
   display: flex;
   align-items: center;
@@ -579,122 +547,121 @@ h2.section-title {
   gap: 6px;
 }
 
-/* --- PÁGINA 4: FECHA Y CUENTA REGRESIVA --- */
+/* --- FECHA Y CUENTA REGRESIVA --- */
 .date-highlight {
   background: linear-gradient(145deg, var(--ivory), #f1ede2);
   border: 1.5px solid var(--gold);
-  border-radius: 18px;
-  padding: 18px 16px;
-  margin: 10px auto;
-  width: 90%;
-  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.16);
+  border-radius: 16px;
+  padding: 14px 12px;
+  margin: 8px auto;
+  width: 88%;
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.14);
 }
 .date-day {
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   color: var(--olive);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 }
 .date-number strong {
-  font: 700 60px/1 'Cormorant Garamond', serif;
+  font: 700 52px/1 'Cormorant Garamond', serif;
   color: var(--gold-dark);
   display: block;
-  margin: 4px 0;
+  margin: 2px 0;
 }
 .date-month {
-  font: 600 24px 'Cormorant Garamond', serif;
+  font: 600 21px 'Cormorant Garamond', serif;
   color: var(--olive-dark);
 }
 .year {
   color: var(--gold-dark);
-  letter-spacing: 6px;
-  font-size: 19px;
+  letter-spacing: 5px;
+  font-size: 17px;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
-/* Reloj Cuenta Regresiva */
 .countdown-title {
-  font-size: 11px;
-  letter-spacing: 2.5px;
+  font-size: 10.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--olive);
-  margin: 14px 0 8px;
+  margin: 10px 0 6px;
   font-weight: 600;
 }
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin: 0 auto 10px;
+  gap: 6px;
+  margin: 0 auto 8px;
 }
 .time-box {
   background: var(--olive-dark);
   color: var(--white);
-  padding: 12px 4px;
+  padding: 10px 4px;
   border-radius: 8px;
   border: 1px solid var(--gold);
-  box-shadow: 0 6px 14px rgba(51, 66, 34, 0.18);
+  box-shadow: 0 4px 12px rgba(51, 66, 34, 0.15);
 }
 .time-box span {
   display: block;
-  font: 600 26px/1 'Cormorant Garamond', serif;
+  font: 600 22px/1 'Cormorant Garamond', serif;
   color: var(--gold-light);
 }
 .time-box small {
-  font-size: 9.5px;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--ivory);
   display: block;
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
-/* --- PÁGINA 5: LUGARES Y MAPAS --- */
+/* --- LUGARES Y MAPAS --- */
 .event-card {
   text-align: left;
-  padding: 15px;
-  margin: 10px 0;
+  padding: 12px 14px;
+  margin: 8px 0;
   background: var(--ivory);
-  border: 1px solid var(--gold);
-  border-left: 4.5px solid var(--olive);
+  border: 1.5px solid var(--gold);
+  border-left: 4px solid var(--olive);
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 .event-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 .event-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--olive-soft);
   color: var(--olive-dark);
   display: grid;
   place-items: center;
-  font-size: 17px;
+  font-size: 15px;
   border: 1px solid var(--gold);
   flex-shrink: 0;
 }
 .event-card h3 {
-  font: 700 23px 'Cormorant Garamond', serif;
+  font: 700 21px 'Cormorant Garamond', serif;
   color: var(--olive-dark);
 }
 .event-card p {
-  margin: 4px 0;
+  margin: 3px 0;
   color: var(--text-muted);
-  font-size: 13.5px;
-  line-height: 1.5;
+  font-size: 12.5px;
+  line-height: 1.45;
 }
 .event-card .time {
   color: var(--olive-dark);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
 }
 .map-link {
   display: inline-flex;
@@ -702,11 +669,11 @@ h2.section-title {
   justify-content: center;
   gap: 6px;
   width: 100%;
-  margin-top: 10px;
-  padding: 11px 14px;
-  font-size: 11.5px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   background: var(--olive-soft);
   color: var(--olive-dark);
   border: 1.5px solid var(--gold);
@@ -721,13 +688,13 @@ h2.section-title {
   border-color: var(--olive);
 }
 
-/* --- PÁGINA 6: MENSAJE FINAL Y CELEBRACIÓN --- */
+/* --- MENSAJE FINAL --- */
 .final-message {
-  margin: 14px 0;
-  padding: 20px 14px;
+  margin: 10px 0;
+  padding: 16px 12px;
   border-top: 1.5px solid var(--gold);
   border-bottom: 1.5px solid var(--gold);
-  font: italic 600 22px/1.5 'Cormorant Garamond', serif;
+  font: italic 600 20px/1.45 'Cormorant Garamond', serif;
   color: var(--olive-dark);
   background: var(--olive-soft);
   border-radius: 8px;
@@ -739,25 +706,25 @@ h2.section-title {
   justify-content: center;
   gap: 8px;
   width: 95%;
-  padding: 14px 18px;
-  margin-top: 12px;
+  padding: 12px 16px;
+  margin-top: 10px;
   background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   color: var(--white);
   border: none;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  box-shadow: 0 8px 20px var(--gold-glow);
+  box-shadow: 0 6px 18px var(--gold-glow);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-/* --- GUÍA SUTIL DE NAVEGACIÓN (PARA ADULTOS MAYORES) --- */
+/* --- NAVEGACIÓN Y GUÍA SUTIL --- */
 .nav-wrapper {
-  margin-top: 18px;
-  padding-top: 10px;
+  margin-top: 14px;
+  padding-top: 8px;
   border-top: 1px dashed rgba(197, 160, 89, 0.5);
   position: relative;
 }
@@ -770,13 +737,13 @@ h2.section-title {
   background: #fffdf7;
   border: 1px solid var(--gold);
   color: var(--olive-dark);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  padding: 7px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
-  margin: 0 auto 10px;
+  margin: 0 auto 8px;
   width: fit-content;
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.22);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
   opacity: 0;
   transform: translateY(6px);
   pointer-events: none;
@@ -788,27 +755,56 @@ h2.section-title {
   animation: gentleBounce 2.2s ease-in-out infinite;
 }
 
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.hand-icon {
+  display: inline-block;
+  font-size: 16px;
+  animation: tapFinger 1.4s ease-in-out infinite;
+}
+@keyframes tapFinger {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.scroll-hint-arrow {
+  font-size: 11px;
+  color: var(--olive);
+  text-align: center;
+  margin-top: 4px;
+  font-weight: 600;
+  animation: floatArrow 1.8s infinite;
+  display: none;
+}
+@keyframes floatArrow {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btn {
-  min-height: 48px;
-  padding: 12px 18px;
+  min-height: 44px;
+  padding: 10px 16px;
   background: linear-gradient(to right, var(--olive), var(--olive-dark));
   color: var(--white);
   border: 1px solid var(--gold);
   border-radius: 6px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(51, 66, 34, 0.22);
+  box-shadow: 0 4px 12px rgba(51, 66, 34, 0.2);
   flex: 1;
 }
 .btn.outline {
@@ -825,18 +821,18 @@ h2.section-title {
 }
 @keyframes buttonAttention {
   0% { box-shadow: 0 0 0 0 rgba(91, 110, 65, 0.55); }
-  70% { box-shadow: 0 0 0 12px rgba(91, 110, 65, 0); }
+  70% { box-shadow: 0 0 0 10px rgba(91, 110, 65, 0); }
   100% { box-shadow: 0 0 0 0 rgba(91, 110, 65, 0); }
 }
 
 .footer {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--olive);
-  font: italic 600 18px 'Cormorant Garamond', serif;
+  font: italic 600 17px 'Cormorant Garamond', serif;
 }
 
-/* --- MODAL PARA VER FOTO EN GRANDE (LIGHTBOX) --- */
+/* --- LIGHTBOX --- */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -877,25 +873,16 @@ h2.section-title {
 }
 .lightbox-content p {
   margin-top: 8px;
-  font: italic 600 22px 'Cormorant Garamond', serif;
+  font: italic 600 21px 'Cormorant Garamond', serif;
   color: var(--olive-dark);
 }
 
-/* --- AJUSTES RESPONSIVOS PARA TELÉFONOS Y PC --- */
 @media (max-width: 420px) {
-  body { padding: 10px 6px 24px; }
-  .card { padding: 9px; }
-  .frame { padding: 24px 14px 20px; min-height: 600px; }
-  .names { font-size: 54px; }
-  .photo-row img { height: 155px; }
-  .botanical-corner { width: 130px; height: 130px; }
-  .corner-tr, .corner-bl { width: 95px; height: 95px; }
-}
-
-@media (min-width: 768px) {
-  body { padding: 35px 20px; }
-  .app { max-width: 510px; }
-  .frame { padding: 38px 30px 30px; min-height: 670px; }
+  body { padding: 8px 4px 20px; }
+  .card { padding: 8px; }
+  .frame { padding: 20px 12px 16px; min-height: 570px; }
+  .names { font-size: 50px; }
+  .photo-row img { max-height: 175px; }
 }
 </style>
 </head>
@@ -903,7 +890,6 @@ h2.section-title {
 <body>
 <canvas id="particlesCanvas"></canvas>
 
-<!-- Definición reutilizable del arreglo floral con flores blancas, hojas de olivo y oro -->
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <g id="weddingFloral">
@@ -958,7 +944,6 @@ h2.section-title {
   </defs>
 </svg>
 
-<!-- Botón de Música -->
 <div class="music-wrapper">
   <div class="music-toast" id="musicToast">🎵 Música de fondo</div>
   <button class="music-btn" id="musicToggle" onclick="toggleMusic()" aria-label="Reproducir o pausar música" title="Música de fondo">♫</button>
@@ -967,7 +952,6 @@ h2.section-title {
   <source src="assets/piano-romantico.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Lightbox para ver las fotos en grande -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <div class="lightbox-content" onclick="event.stopPropagation()">
     <img id="lightboxImg" src="" alt="Foto ampliada">
@@ -977,7 +961,6 @@ h2.section-title {
 </div>
 
 <main class="app">
-  <!-- 1. SOBRE INTERACTIVO CERRADO (CON CLIC Y TOQUE DIRECTO BLINDADO) -->
   <section class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
     <div class="envelope-header">
       <p>🌸 Nuestra Boda 🌸</p>
@@ -1002,10 +985,7 @@ h2.section-title {
     </button>
   </section>
 
-  <!-- 2. CARTA ABIERTA (6 PÁGINAS) -->
   <section class="card" id="cardContainer">
-    
-    <!-- Ramilletes de flores blancas y olivo en las 4 esquinas -->
     <svg class="botanical-corner corner-tl" viewBox="0 0 200 200"><use href="#weddingFloral"/></svg>
     <svg class="botanical-corner corner-tr" viewBox="0 0 200 200"><use href="#weddingFloral"/></svg>
     <svg class="botanical-corner corner-bl" viewBox="0 0 200 200"><use href="#weddingFloral"/></svg>
@@ -1024,7 +1004,7 @@ h2.section-title {
         </div>
       </div>
 
-      <!-- ================= PÁGINA 1: PORTADA ================= -->
+      <!-- PÁGINA 1 -->
       <article class="page active" id="page1">
         <p class="eyebrow stagger-1">Con la bendición de Dios</p>
         <h1 class="names stagger-2">Rafael <span class="ampersand">&amp;</span> Rosa</h1>
@@ -1051,6 +1031,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-1">
             <span class="hand-icon">👆</span> Toca el botón verde para continuar
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-1">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn btn-center primary-next" id="nextBtn-1" onclick="goToPage(2)">
               Ver la Bendición →
@@ -1059,7 +1040,7 @@ h2.section-title {
         </div>
       </article>
 
-      <!-- ================= PÁGINA 2: VERSÍCULO BÍBLICO ================= -->
+      <!-- PÁGINA 2 -->
       <article class="page" id="page2">
         <p class="eyebrow stagger-1">Unidos por Su gracia</p>
         <h2 class="section-title stagger-1">Alianza de Amor</h2>
@@ -1073,7 +1054,7 @@ h2.section-title {
         </div>
 
         <div class="verse-card stagger-3" style="background: var(--ivory);">
-          <p class="verse-text" style="font-size: 19px;">
+          <p class="verse-text" style="font-size: 18px;">
             “Y sobre todas estas cosas, vístanse de amor, que es el vínculo perfecto.”
           </p>
           <p class="verse-ref">— Colosenses 3:14 —</p>
@@ -1083,6 +1064,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-2">
             <span class="hand-icon">👆</span> Toca "Siguiente" para ver nuestras fotos
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-2">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn outline" onclick="goToPage(1)">← Inicio</button>
             <button type="button" class="btn primary-next" id="nextBtn-2" onclick="goToPage(3)">Siguiente: Fotos →</button>
@@ -1090,28 +1072,28 @@ h2.section-title {
         </div>
       </article>
 
-      <!-- ================= PÁGINA 3: LOS 2 RENGLONES DE FOTOS ================= -->
+      <!-- PÁGINA 3: FOTOS COMPLETAS (ADAPTADAS A .JPEG) -->
       <article class="page" id="page3">
         <p class="eyebrow stagger-1">Nuestra historia</p>
         <h2 class="section-title stagger-1">Rafael &amp; Rosa</h2>
         <svg class="floral-divider stagger-1" viewBox="0 0 170 30"><use href="#floralDivider"/></svg>
 
         <div class="micro-hint stagger-2">
-          🔍 Toca cualquier foto si deseas verla más grande
+          🔍 Toca cualquier foto para verla en grande
         </div>
 
         <div class="gallery-rows stagger-2">
-          <!-- Renglón 1 -->
+          <!-- Renglón 1 (Apunta a rafael-rosa.jpeg) -->
           <figure class="photo-row" onclick="openLightbox(this)">
-            <img src="assets/rafael-rosa.jpg" alt="Rafael y Rosa" loading="lazy"
-                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22 viewBox=%220 0 400 220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef3e8%22/><circle cx=%22200%22 cy=%2285%22 r=%2235%22 fill=%22%23C5A059%22 opacity=%220.35%22/><text x=%2250%25%22 y=%22155%22 font-family=%22serif%22 font-size=%2218%22 fill=%22%23334222%22 text-anchor=%22middle%22>Renglón 1: Foto de Rafael y Rosa</text><text x=%2250%25%22 y=%22180%22 font-family=%22sans-serif%22 font-size=%2211%22 fill=%22%235b6e41%22 text-anchor=%22middle%22>(assets/rafael-rosa.jpg)</text></svg>';">
+            <img src="assets/rafael-rosa.jpeg" alt="Rafael y Rosa" loading="lazy"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22 viewBox=%220 0 400 220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef3e8%22/><circle cx=%22200%22 cy=%2285%22 r=%2235%22 fill=%22%23C5A059%22 opacity=%220.35%22/><text x=%2250%25%22 y=%22155%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%23334222%22 text-anchor=%22middle%22>Verifica rafael-rosa.jpeg</text></svg>';">
             <figcaption>🌸 Siempre juntos</figcaption>
           </figure>
 
-          <!-- Renglón 2 -->
+          <!-- Renglón 2 (Apunta a rafael-rosa-2.jpg) -->
           <figure class="photo-row" onclick="openLightbox(this)">
             <img src="assets/rafael-rosa-2.jpg" alt="Recuerdo" loading="lazy"
-                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22 viewBox=%220 0 400 220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef3e8%22/><circle cx=%22200%22 cy=%2285%22 r=%2235%22 fill=%22%235b6e41%22 opacity=%220.25%22/><text x=%2250%25%22 y=%22155%22 font-family=%22serif%22 font-size=%2218%22 fill=%22%23334222%22 text-anchor=%22middle%22>Renglón 2: Foto de Nuestro Amor</text><text x=%2250%25%22 y=%22180%22 font-family=%22sans-serif%22 font-size=%2211%22 fill=%22%235b6e41%22 text-anchor=%22middle%22>(assets/rafael-rosa-2.jpg)</text></svg>';">
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22 viewBox=%220 0 400 220%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23eef3e8%22/><circle cx=%22200%22 cy=%2285%22 r=%2235%22 fill=%22%235b6e41%22 opacity=%220.25%22/><text x=%2250%25%22 y=%22155%22 font-family=%22serif%22 font-size=%2216%22 fill=%22%23334222%22 text-anchor=%22middle%22>Verifica rafael-rosa-2.jpg</text></svg>';">
             <figcaption>🌸 Nuestro amor</figcaption>
           </figure>
         </div>
@@ -1120,6 +1102,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-3">
             <span class="hand-icon">👆</span> Toca aquí abajo para ver la fecha
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-3">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn outline" onclick="goToPage(2)">← Atrás</button>
             <button type="button" class="btn primary-next" id="nextBtn-3" onclick="goToPage(4)">Ver la Fecha →</button>
@@ -1127,7 +1110,7 @@ h2.section-title {
         </div>
       </article>
 
-      <!-- ================= PÁGINA 4: FECHA Y CUENTA REGRESIVA ================= -->
+      <!-- PÁGINA 4 -->
       <article class="page" id="page4">
         <p class="eyebrow stagger-1">Reserva esta fecha</p>
         <h2 class="section-title stagger-1">Nuestro Gran Día</h2>
@@ -1152,6 +1135,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-4">
             <span class="hand-icon">👆</span> Toca aquí para ver el lugar y la hora
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-4">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn outline" onclick="goToPage(3)">← Fotos</button>
             <button type="button" class="btn primary-next" id="nextBtn-4" onclick="goToPage(5)">Lugar y Hora →</button>
@@ -1159,7 +1143,7 @@ h2.section-title {
         </div>
       </article>
 
-      <!-- ================= PÁGINA 5: UBICACIÓN (IGLESIA Y CASA CLUB) ================= -->
+      <!-- PÁGINA 5 -->
       <article class="page" id="page5">
         <p class="eyebrow stagger-1">Nos encantará contar contigo</p>
         <h2 class="section-title stagger-1">Dónde y Cuándo</h2>
@@ -1195,6 +1179,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-5">
             <span class="hand-icon">👆</span> Toca aquí para ver el mensaje final
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-5">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn outline" onclick="goToPage(4)">← Fecha</button>
             <button type="button" class="btn primary-next" id="nextBtn-5" onclick="goToPage(6)">Mensaje Final →</button>
@@ -1202,7 +1187,7 @@ h2.section-title {
         </div>
       </article>
 
-      <!-- ================= PÁGINA 6: MENSAJE FINAL ================= -->
+      <!-- PÁGINA 6 -->
       <article class="page" id="page6">
         <p class="eyebrow stagger-1">Con todo nuestro cariño</p>
         <h2 class="section-title stagger-1">Te Esperamos</h2>
@@ -1212,8 +1197,8 @@ h2.section-title {
           “El mejor regalo es tu presencia. Será una bendición compartir contigo este día tan especial.”
         </p>
 
-        <p class="names stagger-3" style="font-size:54px; margin-top:8px;">Rafael &amp; Rosa</p>
-        <p class="copy stagger-3" style="letter-spacing: 3px; text-transform: uppercase; font-size: 11.5px; color: var(--gold-dark); font-weight: 600; margin-top: 4px;">
+        <p class="names stagger-3" style="font-size:50px; margin-top:6px;">Rafael &amp; Rosa</p>
+        <p class="copy stagger-3" style="letter-spacing: 3px; text-transform: uppercase; font-size: 11px; color: var(--gold-dark); font-weight: 600; margin-top: 2px;">
           🌸 27 · Diciembre · 2026 🌸
         </p>
 
@@ -1225,6 +1210,7 @@ h2.section-title {
           <div class="subtle-guide-toast" id="guide-6">
             <span class="hand-icon">👆</span> Puedes volver al inicio tocando aquí
           </div>
+          <div class="scroll-hint-arrow" id="scrollHint-6">↓ Desliza un poco hacia abajo para ver más ↓</div>
           <div class="nav">
             <button type="button" class="btn outline" onclick="goToPage(5)">← Atrás</button>
             <button type="button" class="btn outline" id="nextBtn-6" onclick="goToPage(1)">Volver al Inicio ↺</button>
@@ -1283,7 +1269,6 @@ function openEnvelope() {
   if (envelopeHelper) envelopeHelper.style.display = 'none';
   envelopeWrapper.classList.add('open');
 
-  // Intentar iniciar la música sin bloquear la apertura de la carta
   try { toggleMusic(); } catch (err) {}
 
   setTimeout(() => {
@@ -1298,19 +1283,32 @@ function openEnvelope() {
     card.classList.add('visible');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     scheduleSubtleGuide(1);
+    checkScrollNeeded(1);
   }, 900);
 }
 
-// Soporte adicional para toque táctil inmediato en móviles
 envelopeWrapper.addEventListener('touchend', function(e) {
   openEnvelope();
 }, { passive: true });
 
-/* --- SISTEMA DE GUÍAS SUTILES POR PÁGINA --- */
 function clearAllGuides() {
   if (guideTimer) clearTimeout(guideTimer);
   document.querySelectorAll('.subtle-guide-toast').forEach(g => g.classList.remove('visible'));
   document.querySelectorAll('.btn').forEach(b => b.classList.remove('pulse-guide'));
+  document.querySelectorAll('.scroll-hint-arrow').forEach(s => s.style.display = 'none');
+}
+
+function checkScrollNeeded(pageNum) {
+  setTimeout(() => {
+    const activePage = document.getElementById('page' + pageNum);
+    if (activePage) {
+      const frameEl = document.getElementById('touchArea');
+      if (frameEl && frameEl.scrollHeight > window.innerHeight * 0.78) {
+        const hintArrow = document.getElementById('scrollHint-' + pageNum);
+        if (hintArrow) hintArrow.style.display = 'block';
+      }
+    }
+  }, 300);
 }
 
 function scheduleSubtleGuide(pageNum) {
@@ -1320,10 +1318,10 @@ function scheduleSubtleGuide(pageNum) {
     const nextBtnEl = document.getElementById('nextBtn-' + pageNum);
     if (guideEl) guideEl.classList.add('visible');
     if (nextBtnEl) nextBtnEl.classList.add('pulse-guide');
-  }, 3800);
+    checkScrollNeeded(pageNum);
+  }, 3500);
 }
 
-/* --- NAVEGACIÓN ENTRE LAS 6 PÁGINAS --- */
 function goToPage(pageNum) {
   currentPage = pageNum;
   clearAllGuides();
@@ -1343,7 +1341,6 @@ function goToPage(pageNum) {
   }, 30);
 }
 
-/* --- SOPORTE PARA DESLIZAR CON EL DEDO (SWIPE EN CELULARES) --- */
 let touchStartX = 0;
 let touchStartY = 0;
 const touchArea = document.getElementById('touchArea');
@@ -1361,7 +1358,6 @@ touchArea.addEventListener('touchend', e => {
   }
 }, { passive: true });
 
-/* --- CUENTA REGRESIVA AL 27 DE DICIEMBRE DE 2026 A LAS 4:00 P. M. --- */
 const weddingDate = new Date('2026-12-27T16:00:00').getTime();
 function updateCountdown() {
   const now = new Date().getTime();
@@ -1381,7 +1377,6 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-/* --- LIGHTBOX PARA VER LAS 2 FOTOS EN GRANDE --- */
 function openLightbox(fig) {
   const img = fig.querySelector('img');
   const cap = fig.querySelector('figcaption');
@@ -1393,7 +1388,6 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
 }
 
-/* --- ANIMACIÓN DE PÉTALOS BLANCOS, HOJAS DE OLIVO Y DESTELLOS DORADOS --- */
 const canvas = document.getElementById('particlesCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
